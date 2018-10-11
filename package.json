@@ -1,17 +1,17 @@
 {
   "name": "wavy-x-desktop",
   "description": "🌊 Amazing Wavy App targeting iOS, Android, Web and Desktop wavy.fr",
-  "version": "2.2.2",
+  "version": "2.2.4",
   "author": "www.wavy.fr",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "electron": "^3.0.3",
     "electron-builder": "^19.56.2",
     "electron-icon-maker": "^0.0.4",
     "electron-packager": "^12.2.0",
     "electron-publish": "^20.28.3",
-    "electron-publisher-s3": "^20.17.2"
+    "electron-publisher-s3": "^20.17.2",
+    "run.env": "^1.1.0"
   },
   "main": "index.electron.js",
   "private": true,
@@ -20,6 +20,8 @@
     "copy-icons": "cp build/icons/mac/icon.icns build/; cp build/icons/win/icon.ico build/;rm -fr build/icons",
     "build": "electron-builder",
     "clean": "rm -fr build/*",
+    "build:osx": "run.env electron-builder",
+    "build:win": "run.env electron-builder --win",
     "prebuild": "yarn clean && yarn electron-icon && yarn copy-icons",
     "watch:electron": "NODE_ENV=development electron .",
     "watch:native": "react-native start",
@@ -28,9 +30,15 @@
   "build": {
     "productName": "Wavy X",
     "appId": "fr.wavy.x",
+    "win": {
+      "target": [
+        "nsis:ia32",
+        "nsis:x64"
+      ]
+    },
     "publish": {
-      "provider": "s3",
-      "bucket": "wavy-desktop-release"
+      "provider": "github",
+      "releaseType": "release"
     }
   }
 }

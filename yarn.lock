@@ -712,6 +712,11 @@ dotenv-expand@^4.0.1:
   resolved "https://registry.npmjs.org/dotenv-expand/-/dotenv-expand-4.2.0.tgz#def1f1ca5d6059d24a766e587942c21106ce1275"
   integrity sha1-3vHxyl1gWdJKdm5YeULCEQbOEnU=
 
+dotenv@^2.0.0:
+  version "2.0.0"
+  resolved "http://registry.npmjs.org/dotenv/-/dotenv-2.0.0.tgz#bd759c357aaa70365e01c96b7b0bec08a6e0d949"
+  integrity sha1-vXWcNXqqcDZeAclrewvsCKbg2Uk=
+
 dotenv@^4.0.0:
   version "4.0.0"
   resolved "http://registry.npmjs.org/dotenv/-/dotenv-4.0.0.tgz#864ef1379aced55ce6f95debecdce179f7a0cd1d"
@@ -2402,6 +2407,13 @@ rimraf@^2.2.8:
   integrity sha512-lreewLK/BlghmxtfH36YYVg1i8IAce4TI7oao75I1g245+6BctqTVQiBP3YUJ9C6DQOXJmkYR9X9fCLtCOJc5w==
   dependencies:
     glob "^7.0.5"
+
+run.env@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/run.env/-/run.env-1.1.0.tgz#a33450a9cbf2bc28a67463e51cc64436eda57441"
+  integrity sha512-KWs8/mIvCs+LPfoQXp4zPo0gZiQCUNKyV33tN7m6r5jL2ZzT11/A2Y1UACsiSMAB53i7jp26uDN2+AeZuZ7+vw==
+  dependencies:
+    dotenv "^2.0.0"
 
 safe-buffer@^5.0.1, safe-buffer@^5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"

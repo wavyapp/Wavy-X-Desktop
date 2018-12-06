@@ -7,15 +7,21 @@ const { NODE_ENV } = process.env;
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
+const isWindowsOS = process.platform.osvar === 'win32';
+
+
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     webPreferences: {
+      nativeWindowOpen: true,
       webSecurity: false,
       allowDisplayingInsecureContent: true,
     },
     title: 'Wavy X',
-    transparent: true,
+    vibrancy: !isWindowsOS && 'dark',
+    transparent: !isWindowsOS,
+    darkTheme: !isWindowsOS,
     width: 1024,
     height: 768,
     center: true,

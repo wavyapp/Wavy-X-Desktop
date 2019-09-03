@@ -88,7 +88,7 @@
         L'équipe Wavy organise des formations gratuitement tous les jours à des horaires différents 😘
       </div>
       <div>
-        <a href="https://app.livestorm.co/wavy/ma-formation-webinar?utm_source=x.wavy.co" target="_blank">
+        <a href="https://app.livestorm.co/wavy/ma-formation-webinar?utm_source=x.wavy.co&email=" id="link_livestorm" target="_blank">
           <button class="button_webinar"> Je m'inscris à la prochaine formation </button>
         </a>
       </div>
@@ -156,6 +156,26 @@
           console.log({ resp, lastestOSX, lastestWIN });
         })
   </script>
+  <script>
+    var getUrlParameter = function getUrlParameter(sParam) {
+     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+      sURLVariables = sPageURL.split('&'),
+      sParameterName,
+      i;
+    
+     for (i = 0; i < sURLVariables.length; i++) {
+      sParameterName = sURLVariables[i].split('=');
+    
+      if (sParameterName[0] === sParam) {
+        return sParameterName[1] === undefined ? true : sParameterName[1];
+      }
+     }
+    };
+
+    if(typeof getUrlParameter('email') !== 'undefined'){
+      document.getElementById('link_livestorm').href = "https://app.livestorm.co/wavy/ma-formation-webinar?utm_source=x.wavy.co&email="+getUrlParameter('email');
+    }
+    </script>
 </body>
 
 </html>

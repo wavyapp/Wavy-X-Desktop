@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>UIkit</title>
+  <title>Wavy X</title>
   <link rel="shortcut icon" href="https://getuikit.com/v2/docs/images/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon-precomposed" href="https://getuikit.com/v2/docs/images/apple-touch-icon.png">
   <link id="data-uikit-theme" rel="stylesheet" href="https://getuikit.com/v2/docs/css/uikit.docs.min.css">
@@ -17,6 +17,7 @@
   <script src="https://getuikit.com/v2/docs/js/docs.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/brands.css" integrity="sha384-rf1bqOAj3+pw6NqYrtaE1/4Se2NBwkIfeYbsFdtiR6TQz0acWiwJbv1IM/Nt/ite" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css" integrity="sha384-1rquJLNOM3ijoueaaeS5m+McXPJCGdr5HcA03/VHXxcp2kX2sUrQDmFc3jR5i/C7" crossorigin="anonymous">
+  
   <style>
 
     .tm-margin-large-bottom{
@@ -74,42 +75,45 @@
         bottom: -1px;
         background: #184876;
     }
+    #es_text{
+      display:none;
+    }
+    #fr_text{
+      display: block;
+    }
   </style>
 </head>
 
 <body class="tm-background">
   <div class="tm-section tm-section-color-white">
     <div class="uk-container uk-container-center uk-text-center">
-
-      <h1 class="tm-margin-large-bottom"><strong>Wavy X</strong> Développez votre salon de coiffure</h1>
-      <div class="webinar_text">
-        Nouveau sur Wavy X ?
-        <br>
-        L'équipe Wavy organise des formations gratuitement tous les jours à des horaires différents 😘
-      </div>
-      <div>
-        <a href="https://app.livestorm.co/wavy/ma-formation-webinar?utm_source=x.wavy.co&email=" id="link_livestorm" target="_blank">
-          <button class="button_webinar"> Je m'inscris à la prochaine formation </button>
-        </a>
-      </div>
+      <span id="fr_text">
+        <h1 class="tm-margin-large-bottom"><strong>Wavy X</strong> Développez votre salon de beauté</h1>
+        <div class="webinar_text">
+          Nouveau sur Wavy X ?
+          <br>
+          L'équipe Wavy organise des formations gratuitement tous les jours à des horaires différents 😘
+        </div>
+        <div>
+          <a href="https://app.livestorm.co/wavy/ma-formation-webinar?utm_source=x.wavy.co&email=" id="link_livestorm" target="_blank">
+            <button class="button_webinar"> Je m'inscris à la prochaine formation </button>
+          </a>
+        </div>
+      </span>
+      <span id="es_text">
+        <h1 class="tm-margin-large-bottom"><strong>Wavy X</strong> Desarrolla tu salón</h1>
+        <div class="webinar_text">
+          ¿Eres nuevo en Wavy X?
+          <br>
+          El equipo de Wavy organiza formaciones gratuitas todos los días a horasdiferentes 😘
+        </div>
+        <div>
+          <a href="https://app.livestorm.co/wavy/mi-formacion?utm_source=x.wavy.co&email=" id="link_livestorm" target="_blank">
+            <button class="button_webinar"> Me apunto a la próxima formación </button>
+          </a>
+        </div>
+      </span>
       <div class="uk-grid tm-grid-margin-large" style="justify-content: center;" data-uk-grid-margin>
-        <div class="uk-width-medium-1-3">
-          <a id="win-dl" class="uk-panel tm-panel-link" href="">
-            <div class="tm-icon icon-container">
-              <i class="fab fa-windows fa-3x"></i>
-            </div>
-            <h2>Windows</h2>
-          </a>
-        </div>
-
-        <div class="uk-width-medium-1-3">
-          <a id="osx-dl" class="uk-panel tm-panel-link" href="">
-              <div class="tm-icon icon-container">
-                <i class="fab fa-apple fa-3x"></i>
-              </div>
-            <h2>Mac OSX</h2>
-          </a>
-        </div>
         <div class="uk-width-medium-1-3">
           <a target="_blank" class="uk-panel tm-panel-link" href="https://app.wavy.co">
             <div class="tm-icon icon-container">
@@ -140,21 +144,15 @@
     </div>
   </div>
   <script>
-    fetch('https://api.github.com/repos/wavyapp/Wavy-X-Desktop/releases/latest')
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(resp) {
-          var lastestOSX = resp.assets.find(function(asset) {
-            return asset.name.match(/.dmg$/);
-          })
-           var lastestWIN = resp.assets.find(function (asset) {
-            return asset.name.match(/.exe$/);
-          })
-          document.getElementById('win-dl').setAttribute('href', lastestWIN.browser_download_url);
-          document.getElementById('osx-dl').setAttribute('href', lastestOSX.browser_download_url);
-          console.log({ resp, lastestOSX, lastestWIN });
-        })
+    var language = window.navigator.language;
+    console.log(language)
+    
+    var languageFistTwo = language.substr(0,2);
+    console.log(languageFistTwo)
+    if(languageFistTwo === 'es'){
+      document.getElementById('es_text').style.display = 'block';
+      document.getElementById('fr_text').style.display = 'none';
+    }
   </script>
   <script>
     var getUrlParameter = function getUrlParameter(sParam) {
